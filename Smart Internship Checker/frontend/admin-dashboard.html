@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SkillTern</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <nav class="navbar reveal">
+        <div class="container navbar-container">
+            <div class="navbar-brand text-gradient">SkillTern Admin</div>
+            <ul class="navbar-menu">
+                <li><span class="navbar-link">System Administrator</span></li>
+                <li><a href="#" onclick="auth.logout(); return false;" class="btn btn-logout">Secure Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard reveal" style="animation-delay: 0.1s">
+            <aside class="sidebar">
+                <div class="card" style="padding: var(--s-sm);">
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="#" class="sidebar-link active" data-view="stats">
+                                <span>📊</span> Control Center
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-view="users">
+                                <span>👥</span> Node (User) Management
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-view="internships">
+                                <span>💼</span> Mission Registry
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <!-- Stats View -->
+                <div id="statsView" class="view-content reveal" style="animation-delay: 0.2s">
+                    <h1 class="text-gradient">System Overview</h1>
+                    <p class="text-dim">Real-time telemetry and platform metrics.</p>
+
+                    <div id="statsContainer" class="mt-2 text-center">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+
+                <!-- Users View -->
+                <div id="usersView" class="view-content hidden">
+                    <h1 class="text-gradient">Inhabitants (Users)</h1>
+                    <p class="text-dim">Manage account permissions and node status.</p>
+
+                    <div id="usersContainer" class="mt-2 text-center">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+
+                <!-- Internships View -->
+                <div id="internshipsView" class="view-content hidden">
+                    <h1 class="text-gradient">Mission Database</h1>
+                    <p class="text-dim">Audit and manage all active internship postings.</p>
+
+                    <div id="internshipsContainer" class="mt-2 text-center">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        // Reveal Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

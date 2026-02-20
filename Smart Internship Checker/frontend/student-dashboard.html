@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - SkillTern</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <nav class="navbar reveal">
+        <div class="container navbar-container">
+            <div class="navbar-brand text-gradient">SkillTern</div>
+            <ul class="navbar-menu">
+                <li><span id="userName" class="navbar-link">Welcome, Student</span></li>
+                <li><a href="#" onclick="auth.logout(); return false;" class="btn btn-logout">Logout Protocol</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard reveal" style="animation-delay: 0.1s">
+            <aside class="sidebar">
+                <div class="card" style="padding: var(--s-sm);">
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="#" class="sidebar-link active" data-view="matched">
+                                <span>🎯</span> Matched Roles
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-view="applications">
+                                <span>📝</span> Active Missions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-view="profile">
+                                <span>👤</span> Bio-Data
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <!-- Matched Internships View -->
+                <div id="matchedView" class="view-content reveal" style="animation-delay: 0.2s">
+                    <h1 class="text-gradient">Internship Matches</h1>
+                    <p class="text-dim">AI-curated opportunities based on your technology stack.</p>
+
+                    <div id="matchedInternships" class="mt-2">
+                        <div class="text-center">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applications View -->
+                <div id="applicationsView" class="view-content hidden">
+                    <h1 class="text-gradient">Active Missions</h1>
+                    <p class="text-dim">Tracking your live applications across the network.</p>
+
+                    <div id="applicationsList" class="mt-2 text-center">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+
+                <!-- Profile View -->
+                <div id="profileView" class="view-content hidden">
+                    <h1 class="text-gradient">My Profile</h1>
+                    <p class="text-dim">Maintain your technical profile synchronization.</p>
+
+                    <div class="card mt-2">
+                        <form id="profileForm">
+                            <div class="profile-form-grid">
+                                <div class="form-group">
+                                    <label for="name">Identity</label>
+                                    <input type="text" id="name" required placeholder="Full Legal Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Neural Link (Email)</label>
+                                    <input type="email" id="email" required disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Comms (Phone)</label>
+                                    <input type="tel" id="phone" placeholder="+1 (555) 000-0000">
+                                </div>
+                                <div class="form-group">
+                                    <label for="college">Nexus (College)</label>
+                                    <input type="text" id="college" placeholder="Technical University">
+                                </div>
+                                <div class="form-group">
+                                    <label for="degree">Level (Degree)</label>
+                                    <input type="text" id="degree" placeholder="B.Tech, MS, etc.">
+                                </div>
+                                <div class="form-group">
+                                    <label for="year">Cycle (Year)</label>
+                                    <select id="year">
+                                        <option value="">Select Phase</option>
+                                        <option value="1">Phase 1 (1st Year)</option>
+                                        <option value="2">Phase 2 (2nd Year)</option>
+                                        <option value="3">Phase 3 (3rd Year)</option>
+                                        <option value="4">Phase 4 (4th Year)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cgpa">Efficiency (CGPA)</label>
+                                    <input type="number" id="cgpa" step="0.01" min="0" max="10" placeholder="0.00">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="skills">Technical Stack (comma-separated)</label>
+                                <textarea id="skills" rows="3" placeholder="react, node.js, rust..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="locations">Target Deployment Zones (Locations)</label>
+                                <input type="text" id="locations" placeholder="Remote, Mumbai, San Francisco...">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="internshipType">Mission Mode</label>
+                                <select id="internshipType">
+                                    <option value="">Universal</option>
+                                    <option value="full-time">Full Deployment</option>
+                                    <option value="part-time">Periodic Sync</option>
+                                    <option value="remote">Remote Protocol</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Update Neural Profile
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/student.js"></script>
+    <script>
+        // Reveal Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

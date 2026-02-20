@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Dashboard - SkillTern</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <nav class="navbar reveal">
+        <div class="container navbar-container">
+            <div class="navbar-brand text-gradient">SkillTern</div>
+            <ul class="navbar-menu">
+                <li><span id="companyName" class="navbar-link">Welcome, Partner</span></li>
+                <li><a href="#" onclick="auth.logout(); return false;" class="btn btn-logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard reveal" style="animation-delay: 0.1s">
+            <aside class="sidebar">
+                <div class="card" style="padding: var(--s-sm);">
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="#" class="sidebar-link active" data-view="internships">
+                                <span>💼</span> My Portfolios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-view="applications">
+                                <span>📩</span> Forms Received
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-view="post">
+                                <span>➕</span> Post Job
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link" data-view="profile">
+                                <span>🏢</span> Corp Identity
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <!-- My Internships View -->
+                <div id="internshipsView" class="view-content reveal" style="animation-delay: 0.2s">
+                    <h1 class="text-gradient">Active Portfolios</h1>
+                    <p class="text-dim">Manage your live internship deployment cycles.</p>
+
+                    <div id="internshipsList" class="mt-2">
+                        <div class="text-center">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applications View -->
+                <div id="applicationsView" class="view-content hidden">
+                    <h1 class="text-gradient">Talent Intel</h1>
+                    <p class="text-dim">Review incoming student synchronization requests.</p>
+
+                    <div id="applicationsList" class="mt-2 text-center">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+
+                <!-- Post Internship View -->
+                <div id="postView" class="view-content hidden">
+                    <h1 class="text-gradient">Deploy Mission</h1>
+                    <p class="text-dim">Initialize a new internship opportunity cycle.</p>
+
+                    <div class="card mt-2">
+                        <form id="postInternshipForm">
+                            <div class="form-group">
+                                <label for="title">Mission Title *</label>
+                                <input type="text" id="title" required placeholder="Frontend Engineer Intern">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Intel Summary (Description) *</label>
+                                <textarea id="description" rows="4" required
+                                    placeholder="Outline the role, tech stack, and mission objectives..."></textarea>
+                            </div>
+
+                            <div class="profile-form-grid">
+                                <div class="form-group">
+                                    <label for="location">Zone (Location)</label>
+                                    <input type="text" id="location" placeholder="Remote, Mumbai, etc.">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="internshipType">Protocol (Type)</label>
+                                    <select id="internshipType">
+                                        <option value="full-time">Full Deployment</option>
+                                        <option value="part-time">Periodic Sync</option>
+                                        <option value="remote">Remote Access</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="duration">Cycle Duration</label>
+                                    <input type="text" id="duration" placeholder="3 months">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="stipend">Credit Allocation (₹)</label>
+                                    <input type="number" id="stipend" placeholder="10000">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="openings">Units (Openings)</label>
+                                    <input type="number" id="openings" value="1" min="1">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="deadline">Sync Deadline</label>
+                                    <input type="date" id="deadline">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="requiredSkills">Core Tech Stack * (comma-separated)</label>
+                                <input type="text" id="requiredSkills" required placeholder="javascript, react, rust">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="optionalSkills">Auxiliary Skills (comma-separated)</label>
+                                <input type="text" id="optionalSkills" placeholder="docker, aws, etc.">
+                            </div>
+
+                            <div class="profile-form-grid">
+                                <div class="form-group">
+                                    <label for="minCGPA">Min Efficiency (CGPA)</label>
+                                    <input type="number" id="minCGPA" step="0.1" min="0" max="10" placeholder="7.0">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="degrees">Eligible Levels (Degrees)</label>
+                                    <input type="text" id="degrees" placeholder="B.Tech, M.Sc, etc.">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="years">Eligible Cycles (Years)</label>
+                                    <input type="text" id="years" placeholder="2, 3, 4">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Initialize
+                                Deployment</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Profile View -->
+                <div id="profileView" class="view-content hidden">
+                    <h1 class="text-gradient">Corp Identity</h1>
+                    <p class="text-dim">Update your organization's technical signature.</p>
+
+                    <div class="card mt-2">
+                        <form id="profileForm">
+                            <div class="profile-form-grid">
+                                <div class="form-group">
+                                    <label for="companyNameInput">Organization Name *</label>
+                                    <input type="text" id="companyNameInput" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="industry">Sector (Industry)</label>
+                                    <input type="text" id="industry" placeholder="Technology, Fintech, etc.">
+                                </div>
+                                <div class="form-group">
+                                    <label for="website">Web Node (Website)</label>
+                                    <input type="url" id="website" placeholder="https://acme.org">
+                                </div>
+                                <div class="form-group">
+                                    <label for="companyLocation">HQ Location</label>
+                                    <input type="text" id="companyLocation" placeholder="San Francisco, CA">
+                                </div>
+                                <div class="form-group">
+                                    <label for="size">Unit Count (Size)</label>
+                                    <select id="size">
+                                        <option value="">Select Scale</option>
+                                        <option value="1-10">1-10 units</option>
+                                        <option value="11-50">11-50 units</option>
+                                        <option value="51-200">51-200 units</option>
+                                        <option value="201-500">201-500 units</option>
+                                        <option value="500+">500+ units</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactPerson">Point of Contact</label>
+                                    <input type="text" id="contactPerson">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Comms Email</label>
+                                    <input type="email" id="contactEmail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactPhone">Comms Phone</label>
+                                    <input type="tel" id="contactPhone">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="companyDescription">Organization Overview</label>
+                                <textarea id="companyDescription" rows="4"
+                                    placeholder="Briefly describe your company's mission..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Save Corp
+                                Identity</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/company.js"></script>
+    <script>
+        // Reveal Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

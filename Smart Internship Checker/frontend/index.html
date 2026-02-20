@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillTern - Connect Students with Opportunities</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* Landing Page Specific Styles */
+    .landing-body {
+      overflow-x: hidden;
+    }
+
+    .hero-section {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      filter: blur(80px);
+      z-index: -1;
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-size: 4.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      color: var(--text-dim);
+    }
+
+    .features-section {
+      padding: var(--s-xl) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--s-lg);
+    }
+
+    .icon-box {
+      width: 60px;
+      height: 60px;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: var(--s-sm);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover .icon-box {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .step-number {
+      font-size: 4rem;
+      font-weight: 800;
+      opacity: 0.1;
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-section {
+        height: auto;
+        padding: var(--s-xl) 0;
+      }
+    }
+  </style>
+</head>
+
+<body class="landing-body">
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero-section reveal">
+      <div class="hero-glow"></div>
+      <h1 class="hero-title text-gradient float">Find Your Perfect<br>Internship Match</h1>
+      <p class="hero-subtitle">
+        Connect with industry leaders through our intelligent skill matching platform. Your career starts
+        here.
+      </p>
+      <div class="grid grid-2" style="max-width: 400px; width: 100%;">
+        <a href="register.html" class="btn btn-primary">Get Started</a>
+        <a href="login.html" class="btn btn-outline">Sign In</a>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="section-header reveal">
+        <h2 class="text-gradient">Why Choose SkillTern ?</h2>
+        <p>Built for the next generation of professional talent.</p>
+      </div>
+
+      <div class="features-grid reveal" style="animation-delay: 0.2s">
+        <div class="feature-card card">
+          <div class="icon-box">🎯</div>
+          <h3>Smart Matching</h3>
+          <p>Our algorithm analyzes your unique skills to find high-probability success matches.</p>
+        </div>
+
+        <div class="feature-card card">
+          <div class="icon-box">👨‍🎓</div>
+          <h3>For Students</h3>
+          <p>Go beyond resumes. Showcase your projects, skills, and potential to top recruiters.</p>
+        </div>
+
+        <div class="feature-card card">
+          <div class="icon-box">🏢</div>
+          <h3>For Companies</h3>
+          <p>Reduce hiring friction by connecting with pre-qualified students who fit your culture.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="features-section">
+      <div class="section-header reveal">
+        <h2 class="text-gradient">The Journey</h2>
+      </div>
+      <div class="grid grid-3 reveal" style="animation-delay: 0.4s">
+        <div class="card">
+          <div class="step-number">01</div>
+          <h4>Create Profile</h4>
+          <p>Sync your Github, LinkedIn, and projects to build an automated digital portfolio.</p>
+        </div>
+        <div class="card">
+          <div class="step-number">02</div>
+          <h4>Get AI Matched</h4>
+          <p>Our algorithm identifies companies looking for exactly what you offer.</p>
+        </div>
+        <div class="card">
+          <div class="step-number">03</div>
+          <h4>Apply & Win</h4>
+          <p>Apply with one click and track your interview process in real-time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="features-section text-center reveal">
+      <div class="card"
+        style="padding: var(--s-xl); background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1)); border-color: var(--primary-glow);">
+        <h2 class="text-gradient mb-2">Ready to Launch?</h2>
+        <p class="mb-3">Join the future of internship hiring today.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="register.html" class="btn btn-primary">Create Free Account</a>
+          <a href="login.html" class="btn btn-outline">Member Login</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: var(--s-lg) 0; border-top: 1px solid var(--border-glass); text-align: center;">
+      <p class="text-muted" style="font-size: 0.9rem;">&copy; 2026 SkillTern. Architected for Excellence.</p>
+    </footer>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Redirect if already logged in
+    if (auth.isAuthenticated()) {
+      auth.redirectByRole();
+    }
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>

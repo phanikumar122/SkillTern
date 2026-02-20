@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SkillTern</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .auth-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--s-md);
+            position: relative;
+        }
+
+        .auth-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(60px);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .auth-card {
+            max-width: 440px;
+            width: 100%;
+            padding: var(--s-lg);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: var(--s-lg);
+        }
+
+        .auth-tabs {
+            display: flex;
+            background: var(--bg-glass);
+            padding: 6px;
+            border-radius: 12px;
+            margin-bottom: var(--s-md);
+        }
+
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--text-dim);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .auth-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: var(--s-md) 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border-glass);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            padding: 4px;
+            user-select: none;
+            transition: color var(--transition);
+        }
+
+        .password-toggle:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-wrapper reveal">
+        <div class="auth-glow"></div>
+
+        <div class="card auth-card">
+            <div class="auth-header">
+                <h1 class="text-gradient">SkillTern</h1>
+                <p class="text-dim">Log in to your career dashboard.</p>
+            </div>
+
+            <div class="auth-tabs">
+                <a href="login.html" class="auth-tab active">Login</a>
+                <a href="register.html" class="auth-tab">Register</a>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Work Email</label>
+                    <input type="email" id="email" required placeholder="name@domain.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" required placeholder="••••••••" minlength="6">
+                        <button type="button" class="password-toggle" id="togglePassword"
+                            aria-label="Toggle password visibility">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    Sign In
+                </button>
+            </form>
+
+            <div class="divider">OR</div>
+
+            <div class="text-center">
+                <p class="text-muted" style="font-size: 0.9rem;">
+                    Don't have an account?
+                    <a href="register.html" class="badge-primary"
+                        style="padding: 4px 8px; border-radius: 6px; margin-left: 5px;">Join Now</a>
+                </p>
+            </div>
+
+            <div class="mt-2 text-center">
+                <a href="/" class="text-muted" style="font-size: 0.85rem;">&larr; Return to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        // Redirect if already logged in
+        if (auth.isAuthenticated()) {
+            auth.redirectByRole();
+        }
+
+        // Toggle SVG icons
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+        const eyeOffIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`;
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? eyeIcon : eyeOffIcon;
+        });
+
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await api.login({ email, password });
+                const data = await utils.handleResponse(response);
+
+                if (data.success) {
+                    // Save auth data
+                    auth.saveAuth(data.token, data.user);
+
+                    // Show success message
+                    utils.showAlert('Login successful!', 'success');
+
+                    // Redirect after short delay
+                    setTimeout(() => {
+                        auth.redirectByRole();
+                    }, 1000);
+                }
+            } catch (error) {
+                // Show modal on error
+                utils.createModal(
+                    'Login Failed',
+                    `<p style="margin-bottom: 0;">${error.message || 'Invalid email or password.'}</p>`,
+                    {
+                        confirmText: 'Retry',
+                        cancelText: 'Cancel',
+                        onConfirm: () => {
+                            // Clear password and focus 
+                            document.getElementById('password').value = '';
+                            document.getElementById('password').focus();
+                        },
+                        onCancel: () => {
+                            // Optional: Do something on cancel
+                        }
+                    }
+                );
+            }
+        });
+    </script>
+</body>
+
+</html>

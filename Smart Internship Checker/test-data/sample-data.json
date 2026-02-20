@@ -1,0 +1,310 @@
+{
+    "sampleData": {
+        "admin": {
+            "email": "admin@internmatch.com",
+            "password": "admin123",
+            "role": "admin"
+        },
+        "students": [
+            {
+                "email": "john.doe@student.com",
+                "password": "student123",
+                "role": "student",
+                "profile": {
+                    "name": "John Doe",
+                    "college": "MIT",
+                    "degree": "B.Tech Computer Science",
+                    "year": 3,
+                    "cgpa": 8.5,
+                    "skills": [
+                        "javascript",
+                        "react",
+                        "node.js",
+                        "python",
+                        "mongodb"
+                    ],
+                    "preferences": {
+                        "locations": [
+                            "Bangalore",
+                            "Mumbai",
+                            "Remote"
+                        ],
+                        "domains": [
+                            "Web Development",
+                            "Full Stack"
+                        ],
+                        "internshipType": "remote"
+                    }
+                }
+            },
+            {
+                "email": "jane.smith@student.com",
+                "password": "student123",
+                "role": "student",
+                "profile": {
+                    "name": "Jane Smith",
+                    "college": "Stanford University",
+                    "degree": "B.Sc Data Science",
+                    "year": 2,
+                    "cgpa": 9.0,
+                    "skills": [
+                        "python",
+                        "machine learning",
+                        "tensorflow",
+                        "pandas",
+                        "sql"
+                    ],
+                    "preferences": {
+                        "locations": [
+                            "Remote",
+                            "Delhi"
+                        ],
+                        "domains": [
+                            "Data Science",
+                            "AI/ML"
+                        ],
+                        "internshipType": "full-time"
+                    }
+                }
+            },
+            {
+                "email": "alex.johnson@student.com",
+                "password": "student123",
+                "role": "student",
+                "profile": {
+                    "name": "Alex Johnson",
+                    "college": "IIT Delhi",
+                    "degree": "B.Tech Software Engineering",
+                    "year": 4,
+                    "cgpa": 8.2,
+                    "skills": [
+                        "java",
+                        "spring boot",
+                        "mysql",
+                        "aws",
+                        "docker"
+                    ],
+                    "preferences": {
+                        "locations": [
+                            "Bangalore",
+                            "Hyderabad"
+                        ],
+                        "domains": [
+                            "Backend Development",
+                            "Cloud"
+                        ],
+                        "internshipType": "full-time"
+                    }
+                }
+            }
+        ],
+        "companies": [
+            {
+                "email": "hr@techcorp.com",
+                "password": "company123",
+                "role": "company",
+                "profile": {
+                    "companyName": "TechCorp Solutions",
+                    "industry": "Technology",
+                    "website": "https://techcorp.com",
+                    "location": "Bangalore, India",
+                    "size": "201-500",
+                    "contactPerson": "HR Manager",
+                    "contactEmail": "hr@techcorp.com",
+                    "contactPhone": "+91-9876543210",
+                    "description": "Leading technology solutions provider specializing in web and mobile development."
+                }
+            },
+            {
+                "email": "careers@datatech.com",
+                "password": "company123",
+                "role": "company",
+                "profile": {
+                    "companyName": "DataTech Analytics",
+                    "industry": "Data Analytics",
+                    "website": "https://datatech.com",
+                    "location": "Mumbai, India",
+                    "size": "51-200",
+                    "contactPerson": "Recruitment Team",
+                    "contactEmail": "careers@datatech.com",
+                    "contactPhone": "+91-9876543211",
+                    "description": "Data analytics and AI solutions company helping businesses make data-driven decisions."
+                }
+            }
+        ],
+        "internships": [
+            {
+                "title": "Frontend Developer Intern",
+                "description": "Join our team to work on cutting-edge web applications using React and modern JavaScript. You'll collaborate with experienced developers and gain hands-on experience in building scalable user interfaces.",
+                "requiredSkills": [
+                    "javascript",
+                    "react",
+                    "html",
+                    "css"
+                ],
+                "optionalSkills": [
+                    "typescript",
+                    "redux"
+                ],
+                "location": "Bangalore",
+                "internshipType": "full-time",
+                "duration": "3 months",
+                "stipend": 15000,
+                "eligibility": {
+                    "minCGPA": 7.5,
+                    "degrees": [
+                        "B.Tech",
+                        "B.Sc",
+                        "BCA"
+                    ],
+                    "years": [
+                        2,
+                        3,
+                        4
+                    ]
+                },
+                "responsibilities": [
+                    "Develop user-facing features using React.js",
+                    "Build reusable components and front-end libraries",
+                    "Collaborate with backend team for API integration"
+                ],
+                "perks": [
+                    "Certificate",
+                    "Letter of Recommendation",
+                    "PPO possibility"
+                ],
+                "openings": 3,
+                "status": "active"
+            },
+            {
+                "title": "Data Science Intern",
+                "description": "Work with our data science team on real-world machine learning projects. Gain experience in data analysis, model building, and deployment of ML solutions.",
+                "requiredSkills": [
+                    "python",
+                    "machine learning",
+                    "pandas"
+                ],
+                "optionalSkills": [
+                    "tensorflow",
+                    "pytorch",
+                    "sql"
+                ],
+                "location": "Remote",
+                "internshipType": "remote",
+                "duration": "6 months",
+                "stipend": 20000,
+                "eligibility": {
+                    "minCGPA": 8.0,
+                    "degrees": [
+                        "B.Tech",
+                        "B.Sc",
+                        "M.Tech"
+                    ],
+                    "years": [
+                        3,
+                        4
+                    ]
+                },
+                "responsibilities": [
+                    "Analyze large datasets to extract insights",
+                    "Build and train machine learning models",
+                    "Present findings to stakeholders"
+                ],
+                "perks": [
+                    "Flexible hours",
+                    "Certificate",
+                    "Mentorship"
+                ],
+                "openings": 2,
+                "status": "active"
+            },
+            {
+                "title": "Backend Developer Intern",
+                "description": "Join our backend team to work on scalable microservices architecture. Learn about API design, database optimization, and cloud deployment.",
+                "requiredSkills": [
+                    "java",
+                    "spring boot",
+                    "mysql"
+                ],
+                "optionalSkills": [
+                    "mongodb",
+                    "redis",
+                    "kubernetes"
+                ],
+                "location": "Hyderabad",
+                "internshipType": "full-time",
+                "duration": "4 months",
+                "stipend": 18000,
+                "eligibility": {
+                    "minCGPA": 7.0,
+                    "degrees": [
+                        "B.Tech",
+                        "MCA"
+                    ],
+                    "years": [
+                        3,
+                        4,
+                        5
+                    ]
+                },
+                "responsibilities": [
+                    "Develop RESTful APIs using Spring Boot",
+                    "Optimize database queries and schema design",
+                    "Write unit and integration tests"
+                ],
+                "perks": [
+                    "Certificate",
+                    "Full-time conversion opportunity"
+                ],
+                "openings": 2,
+                "status": "active"
+            },
+            {
+                "title": "Full Stack Web Developer",
+                "description": "Work on both frontend and backend of our web applications. Perfect for someone who wants to learn the complete development lifecycle.",
+                "requiredSkills": [
+                    "javascript",
+                    "node.js",
+                    "react",
+                    "mongodb"
+                ],
+                "optionalSkills": [
+                    "express",
+                    "typescript"
+                ],
+                "location": "Bangalore",
+                "internshipType": "full-time",
+                "duration": "5 months",
+                "stipend": 22000,
+                "eligibility": {
+                    "minCGPA": 7.5,
+                    "degrees": [
+                        "B.Tech"
+                    ],
+                    "years": [
+                        3,
+                        4
+                    ]
+                },
+                "responsibilities": [
+                    "Build complete features from frontend to backend",
+                    "Implement responsive UI designs",
+                    "Deploy applications to cloud platforms"
+                ],
+                "perks": [
+                    "Certificate",
+                    "Stipend",
+                    "Learning opportunities"
+                ],
+                "openings": 2,
+                "status": "active"
+            }
+        ]
+    },
+    "instructions": {
+        "setup": "Use this data to populate the database for testing",
+        "adminLogin": "Email: admin@internmatch.com, Password: admin123",
+        "studentLogin": "Email: john.doe@student.com, Password: student123",
+        "companyLogin": "Email: hr@techcorp.com, Password: company123"
+    }
+}

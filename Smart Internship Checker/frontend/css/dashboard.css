@@ -1,0 +1,337 @@
+/* ========================================
+   DASHBOARD SPECIFIC STYLES
+   ======================================== */
+
+.navbar {
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glass);
+    padding: var(--s-sm) 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-soft);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: var(--s-md);
+    align-items: center;
+    list-style: none;
+    margin-left: auto;
+}
+
+.navbar-link {
+    color: var(--text-dim);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.navbar-link:hover {
+    color: var(--primary);
+}
+
+/* Logout Button */
+.btn-logout {
+    background: linear-gradient(135deg, #dc2626, #991b1b);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.3);
+}
+
+.btn-logout:hover {
+    background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px -2px rgba(220, 38, 38, 0.4);
+}
+
+/* Layout */
+.dashboard {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--s-lg);
+    padding: var(--s-lg) 0;
+    min-height: calc(100vh - 80px);
+}
+
+.sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    color: var(--text-dim);
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.sidebar-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+.sidebar-link.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow-glow);
+}
+
+/* Content Views */
+.view-content h1 {
+    font-size: 2.25rem;
+    margin-bottom: var(--s-xs);
+}
+
+/* Internship Cards */
+.internship-card {
+    margin-bottom: var(--s-md);
+    padding: var(--s-md);
+    border: 1px solid var(--border-glass);
+    position: relative;
+    transition: var(--transition);
+}
+
+.internship-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: var(--s-sm);
+}
+
+.internship-title {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.company-badge {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: var(--s-xs);
+    display: block;
+}
+
+.internship-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-md);
+    margin: var(--s-sm) 0;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: var(--s-sm) 0;
+}
+
+.skill-tag {
+    padding: 4px 10px;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.skill-tag.match {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.2);
+    color: var(--accent);
+}
+
+/* Match Score */
+.score-indicator {
+    padding: 12px;
+    background: var(--bg-glass);
+    border-radius: 12px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.score-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+/* Profile Form Adjustments */
+.profile-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--s-md);
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: var(--s-md);
+}
+
+.modal-content {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-xl);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    padding: var(--s-lg);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        margin-bottom: var(--s-lg);
+    }
+}
+
+/* Admin Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--s-md);
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.stat-label {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+}
+
+/* Table Styles */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-glass);
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+thead {
+    background: rgba(79, 70, 229, 0.05);
+    border-bottom: 2px solid var(--border-glass);
+}
+
+thead th {
+    padding: 16px 20px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--border-glass);
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background: rgba(79, 70, 229, 0.03);
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody td {
+    padding: 16px 20px;
+    color: var(--text-dim);
+    vertical-align: middle;
+}
+
+tbody td strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    .table-container {
+        font-size: 0.85rem;
+    }
+
+    thead th,
+    tbody td {
+        padding: 12px 16px;
+    }
+}
