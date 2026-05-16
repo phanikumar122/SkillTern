@@ -2,22 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "Smart Internship Checker/backend/server.js",
+      "src": "smart-internship-checker/backend/server.js",
       "use": "@vercel/node"
     },
     {
-      "src": "Smart Internship Checker/frontend/**",
+      "src": "smart-internship-checker/frontend/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "Smart Internship Checker/backend/server.js"
+      "dest": "smart-internship-checker/backend/server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "Smart Internship Checker/frontend/$1"
+      "dest": "smart-internship-checker/frontend/$1"
     }
   ]
 }
