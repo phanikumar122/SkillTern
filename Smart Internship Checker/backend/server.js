@@ -60,10 +60,12 @@ app.use((err, req, res, next) => {
 // Start server
 const PORT = config.port || 5000;
 
-app.listen(PORT, () => {
-    console.log(`Server running in ${config.nodeEnv} mode on port ${PORT}`);
-    console.log(`Frontend: http://localhost:${PORT}`);
-    console.log(`API: http://localhost:${PORT}/api`);
-});
+if (process.env.VERCEL !== '1') {
+    app.listen(PORT, () => {
+        console.log(`Server running in ${config.nodeEnv} mode on port ${PORT}`);
+        console.log(`Frontend: http://localhost:${PORT}`);
+        console.log(`API: http://localhost:${PORT}/api`);
+    });
+}
 
 module.exports = app;
