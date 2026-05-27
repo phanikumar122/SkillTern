@@ -42,9 +42,7 @@ app.get('/api/health', (req, res) => {
 
 // Serve frontend for all non-API routes (SPA support)
 app.get('*', (req, res) => {
-    if (!req.path.startsWith('/api')) {
-        res.sendFile(path.join(__dirname, '../frontend/index.html'));
-    }
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 // Error handling middleware

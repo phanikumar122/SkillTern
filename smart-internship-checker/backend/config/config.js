@@ -9,5 +9,5 @@ module.exports = {
     jwtSecret: process.env.JWT_SECRET || 'fallback_secret_key',
     jwtExpire: process.env.JWT_EXPIRE || '7d',
     nodeEnv: process.env.NODE_ENV || 'development',
-    frontendURL: process.env.FRONTEND_URL || 'http://localhost:5000'
+    frontendURL: process.env.FRONTEND_URL || 'http://localhost:3000'
 };

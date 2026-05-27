@@ -1,6 +1,6 @@
 // Admin Dashboard JavaScript
 if (!auth.requireAuth() || !auth.hasRole('admin')) {
-  window.location.href = '/';
+  window.location.href = 'login.html';
 }
 
 const token = auth.getToken();

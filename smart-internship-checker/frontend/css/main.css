@@ -324,6 +324,19 @@ input:focus {
   animation: fadeIn var(--transition-slow) ease-out;
 }
 
+.fade-out {
+  animation: fadeOut 0.2s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 /* Loading Spinner */
 .spinner {
   width: 40px;

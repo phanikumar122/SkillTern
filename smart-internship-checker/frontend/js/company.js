@@ -2,7 +2,7 @@
 
 // Check authentication
 if (!auth.requireAuth() || !auth.hasRole('company')) {
-    window.location.href = '/';
+    window.location.href = 'login.html';
 }
 
 const token = auth.getToken();

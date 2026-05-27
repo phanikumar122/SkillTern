@@ -37,9 +37,19 @@ const protect = async (req, res, next) => {
 
         next();
     } catch (error) {
+        let errorMessage = 'Not authorized, token failed';
+        
+        if (error.name === 'TokenExpiredError') {
+            errorMessage = 'Your session has expired. Please login again.';
+        } else if (error.name === 'JsonWebTokenError') {
+            errorMessage = 'Invalid token. Please login again.';
+        } else if (error.name === 'NotBeforeError') {
+            errorMessage = 'Token not yet valid.';
+        }
+        
         return res.status(401).json({
             success: false,
-            message: 'Not authorized, token failed'
+            message: errorMessage
         });
     }
 };

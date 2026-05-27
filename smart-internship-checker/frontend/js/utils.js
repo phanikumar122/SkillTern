@@ -43,7 +43,7 @@ function formatDate(dateString) {
 
 // Format currency
 function formatCurrency(amount) {
-    if (!amount) return '₹0';
+    if (!amount || amount === 0) return 'Unpaid';
     return `₹${amount.toLocaleString('en-IN')}`;
 }
 
@@ -91,13 +91,26 @@ function createSkillBadge(skill, isMatched = null) {
 
 // Handle API errors
 async function handleResponse(response) {
-    const data = await response.json();
+    try {
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            const text = await response.text();
+            throw new Error('Invalid response format: ' + (text.substring(0, 100) || 'Non-JSON response'));
+        }
+        
+        const data = await response.json();
 
-    if (!response.ok) {
-        throw new Error(data.message || 'Something went wrong');
+        if (!response.ok) {
+            throw new Error(data.message || `HTTP error! status: ${response.status}`);
+        }
+
+        return data;
+    } catch (error) {
+        if (error instanceof SyntaxError) {
+            throw new Error('Invalid JSON response from server');
+        }
+        throw error;
     }
-
-    return data;
 }
 
 // Debounce function

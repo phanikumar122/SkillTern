@@ -2,14 +2,16 @@
 
 // Check authentication
 if (!auth.requireAuth() || !auth.hasRole('student')) {
-  window.location.href = '/';
+  window.location.href = 'login.html';
 }
 
 const token = auth.getToken();
 const user = auth.getUser();
 
 // Display user name
-document.getElementById('userName').textContent = user.email;
+if (user && document.getElementById('userName')) {
+  document.getElementById('userName').textContent = user.email || 'Student';
+}
 
 // View switching
 const sidebarLinks = document.querySelectorAll('.sidebar-link');
